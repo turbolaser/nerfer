@@ -4,9 +4,9 @@ import time
 import threading
 
 # Duration of the trigger pull in seconds
-TRIGGER_TIME = 5
+TRIGGER_TIME = 2
 # The GPIO to use for pulling the trigger
-TRIGGER_PIN = 17
+TRIGGER_PIN = 11
 
 nerfer = flask.Flask(__name__)
 
@@ -26,6 +26,7 @@ def cancel_fire():
     gpio.output(TRIGGER_PIN, gpio.LOW)
 
 if __name__ == '__main__':
-    gpio.setmode(gpio.BOARD)
+    gpio.setmode(gpio.BCM)
     gpio.setup(TRIGGER_PIN, gpio.OUT)
-    nerfer.run()
+    nerfer.run(host='0.0.0.0')
+    gpio.cleanup()

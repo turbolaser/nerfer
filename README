@@ -1,0 +1,6 @@
+Nerf Herder Sentry Gun Controller
+=================================
+
+Controls a Nerf dart launcher via HTTP GET and POST requests.
+
+Requires gevent and flask. You must also be running pi-blaster (https://github.com/sarfata/pi-blaster/).

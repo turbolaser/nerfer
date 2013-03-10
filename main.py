@@ -7,11 +7,17 @@ TRIGGER_TIME = 0.28
 # The PWM channel to use for pulling the trigger
 TRIGGER_PIN = 7 # 7= P1 pin 22
 
-# Left oscillation pulse width (in hundredths of seconds - 0.1 for 1 ms)
-OSC_LEFT_WIDTH = 0.8
-# Right oscillation pulse width
-OSC_RIGHT_WIDTH = 0.9
-# Oscillation time (1/2 cycle, in seconds)
+# PWM Frequency. Warning -- DO NOT CHANGE here without changing the PWM cycle time in pi-blaster.c
+PWM_FREQ = 50
+# PWM Period (seconds)
+PWM_PERIOD = 1.0 / PWM_FREQ
+# Counter-clockwise oscillation pulse width (seconds)
+PWM_WIDTH_LEFT = 0.00125
+OSC_LEFT_WIDTH = (PWM_PERIOD - PWM_WIDTH_LEFT) / PWM_PERIOD
+# Clockwise oscillation pulse width
+PWM_WIDTH_RIGHT = 0.00169
+OSC_RIGHT_WIDTH = (PWM_PERIOD - PWM_WIDTH_RIGHT) / PWM_PERIOD
+# Oscillation time (1/2 cycle, in seconds). Increase this to give the gun a wider area of fire.
 OSC_PERIOD = 1.0
 # Oscillation paruse time, in seconds
 OSC_PAUSE = 0.5

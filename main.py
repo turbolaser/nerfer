@@ -3,7 +3,7 @@ import gevent
 from gevent import monkey; monkey.patch_all()
 
 # Duration of the trigger pull in seconds
-TRIGGER_TIME = 0.28
+TRIGGER_TIME = 0.15
 # The PWM channel to use for pulling the trigger
 TRIGGER_PIN = 7 # 7= P1 pin 22
 
